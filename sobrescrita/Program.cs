@@ -1,41 +1,21 @@
-﻿
+﻿var rel = new Relatorio();
+rel.imprime();
+var fat = new Fatura();
+fat.imprime();
 
-var animais = new List<Animal>
-{
-    new Animal(),
-    new Cachorro(),
-    new Gato()
-};
+public abstract class Imprimir {
 
-foreach (var animal in animais)
-{
-    animal.EmitirSom();
+    public abstract void imprime(); 
 }
 
-//O animal faz um som.
-//cachorro late
-//gato mia
-
-public class Animal
-{
-    public virtual void EmitirSom()
-    {
-        Console.WriteLine("O animal faz um som.");
+public class Relatorio : Imprimir { 
+    public override void imprime() { 
+        Console.WriteLine("Relatório impresso");
     }
 }
 
-public class Cachorro : Animal
-{
-    public override void EmitirSom()
-    {
-        Console.WriteLine("O cachorro late.");
-    }
-}
-
-public class Gato : Animal
-{
-    public override void EmitirSom()
-    {
-        Console.WriteLine("O gato mia.");
+public class Fatura : Imprimir { 
+    public override void imprime() { 
+        Console.WriteLine("Fatura impressa");
     }
 }
