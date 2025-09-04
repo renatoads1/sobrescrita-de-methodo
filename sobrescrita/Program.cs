@@ -1,21 +1,26 @@
-﻿var rel = new Relatorio();
-rel.imprime();
-var fat = new Fatura();
-fat.imprime();
+﻿
+var mot = new MotoqueiroIfood();
+mot.FazerEntrega();
 
-public abstract class Imprimir {
+public abstract class Entregador {
 
-    public abstract void imprime(); 
+    public abstract void Entregar();
+    public abstract void Retirar();
+
 }
 
-public class Relatorio : Imprimir { 
-    public override void imprime() { 
-        Console.WriteLine("Relatório impresso");
+public class MotoqueiroIfood : Entregador {
+
+    public override void Entregar() {
+        Console.WriteLine("Entregando encomenda");
     }
-}
+    public override void Retirar() {
 
-public class Fatura : Imprimir { 
-    public override void imprime() { 
-        Console.WriteLine("Fatura impressa");
+        Console.WriteLine("Retirando Encomenda");
+    }
+
+    public void FazerEntrega() {
+        Retirar();
+        Entregar();
     }
 }
